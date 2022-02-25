@@ -23,7 +23,7 @@ public class Ticket {
     @OneToOne(targetEntity = Screen.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "screen_id_FK",referencedColumnName = "id",insertable = false, updatable = false)
     private Screen screen;
-    @OneToOne(targetEntity = Theatre.class, cascade = CascadeType.DETACH)
+    @OneToOne(targetEntity = Theatre.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "city_id_FK",referencedColumnName = "id",insertable = false, updatable = false)
     private Theatre theatre;
 
