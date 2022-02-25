@@ -1,6 +1,9 @@
 package com.bookmyShowLowLevelDesignDemo.entity;
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /*
@@ -14,6 +17,9 @@ public class Screen {
     private UUID id;
     private String name;
     private int numberOfSeats;
+    @CollectionTable(name = "allottedSeats")
+    @ElementCollection
+    private Map<Integer,Boolean> seatsMapping=new HashMap<>();
     @OneToOne(targetEntity = Movie.class,cascade = CascadeType.DETACH)
     @JoinColumn(name = "m_fk",referencedColumnName = "id")
     private Movie movie;
